@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyTasks.Data.Map;
 using MyTasks.Models;
 
 namespace MyTasks.Data
@@ -14,6 +15,8 @@ namespace MyTasks.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new TaskMap());
             base.OnModelCreating(modelBuilder);
         }
     }
